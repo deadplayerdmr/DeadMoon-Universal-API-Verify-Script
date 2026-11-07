@@ -44,35 +44,3 @@ This project is an interactive Windows batch/JS frontend and relay-compatibility
 
 Distributed under the MIT License.
 
----
-
-## 2. `project_handoff_context_prompt.md` (For Future Chat Sessions)
-
-Save this as **`project_handoff_context_prompt.md`**:
-
-```markdown
-# PROJECT HANDOFF CONTEXT PROMPT: DeadMoon Universal API Verify Script (v2.2)
-
-Copy and paste everything below into a new chat session to restore full project context:
-
----
-
-## 1. Project Overview & Current State
-
-- **Script Name**: `DeadMoon_Universal_API_Verify_Script.cmd` (Portable Windows Batch + embedded Bun/JavaScript CLI wrapper).
-- **Core Engine**: Wraps **`Ikaleio/lm-detector`** (`lmfpd@latest` / `fpd`) via portable Oven Bun runtime stored locally in `lm_detector_deps/`.
-- **Key Features Implemented (v2.2)**:
-  1. Animated GIF-style ASCII art boot screen (DeadMoon headphone logo with music notes and twinkling stars)[cite: 3] and single-line progress updater (`25%` → `50%` → `75%` → `100%`).
-  2. **Smart Auto-Config Mode (`[M]`)**: Auto-probes protocol routes, handles reasoning model timeouts (240s for Opus/R1), and auto-heals stream drop errors (`-ns`) or rate-limit blocks (`-p 1`).
-  3. **Local API Key Vault**: Option to save API keys securely to `lm_detector_deps/saved_apikey.txt` (automatically loaded on startup) with a dedicated `[V]` viewer to inspect saved/active keys.
-  4. **Universal Catalog Fetcher**: Multi-strategy `/models` querying that bypasses pagination limits (fetching 400+ models on OpenRouter) with intelligent multi-word keyword and partial-match searching.
-
----
-
-## 2. Windows Batch (`cmd.exe`) Guardrails (DO NOT REGRESS!)
-
-- **NEVER use `==` in `if` statements — always use `equ`** (prevents copy-paste parser corruption).
-- **NEVER put unescaped parentheses `(` or `)` inside parenthesized `if (...)` or `for (...)` blocks**.
-- **NEVER use `::` comments before `:labels` — always use `rem`** and leave a blank line before every `:label`.
-- **Line Endings Must Be Windows CRLF (`\r\n`)**.
-```
