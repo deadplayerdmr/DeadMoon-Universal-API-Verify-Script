@@ -1,0 +1,78 @@
+# 🌙 DeadMoon Universal API Verify Script
+
+**Powered by [Ikaleio/lm-detector (`lmfpd`)](https://github.com/Ikaleio/lm-detector)**
+
+```text
+         .       +        .================.        *        .
+      +    d~~b      .==='  .------------.  '===.      d~~b     .
+         . d  b    /   .-'    .      o    '-.   \     d  b   +
+                  /  .'   o       .      .   '.  \        .
+       *         [===]  .    /        \    .  [===]   +       *
+            .--- [===]     \____/    \____/   [===] ---.
+           (     [===]   o      .----.      O [===]     )   d~b
+       .    '--- [===]    .    /      \   .   [===] ---'    d b
+          +       \  '.     .            o  .'  /       *
+       .           '.  '-.    o   .   .  .-'  .'     .       +
+            *        '===='--------------'===='          .
+```
+
+A 100% self-contained, portable Windows CLI toolkit that wraps Ikaleio/lm-detector (lmfpd@latest) to fingerprint and verify upstream Large Language Models (LLMs) across OpenRouter and any custom 3rd-Party OpenAI- or Anthropic-compatible API relay.
+
+## ✨ Key Features & Architecture (v2.2)
+
+- **Animated Moon Boot Splash & UI:** Features an animated ASCII crest modeled after the DeadMoon headphone logo complete with floating music notes, pulsing headphone soundwaves, twinkling stars, and a smooth single-line 25% → 50% → 75% → 100% progress bar.
+- **Smart Auto-Config Mode (`[M]`):** Enabled by default. Automatically probes provider endpoints, selects optimal protocol routes (`-a cc` vs `-a message`), and self-heals by dynamically catching dropped SSE streams (missing finish status) or concurrency/rate-limit blocks (HTTP 402/429/503) to auto-retry with non-streaming (`-ns`) or sequential (`-p 1`) protection.
+- **Local API Key Vault (`[K]` & `[V]`):** Securely saves your API key locally inside an ignored vault file (`lm_detector_deps/saved_apikey.txt`) so you never have to re-paste it on startup, with a dedicated `[V]` viewer to reveal your full key anytime.
+- **Universal Catalog Scanner (`[3]`):** Bypasses gateway pagination caps to fetch the full model catalog (e.g., 400+ models on OpenRouter) and features multi-word fuzzy search with automatic fallback matching.
+- **Zero Global Dependencies:** Automatically downloads a portable instance of the Bun runtime and installs `lmfpd@latest` inside a local `./lm_detector_deps` folder on first launch.
+
+## 🚀 Quick Start (Windows 10 / 11)
+
+1. Download `DeadMoon_Universal_API_Verify_Script.cmd` into its own folder.
+2. Double-click the `.cmd` file to launch.
+3. On first launch, pick your Base URL (OpenRouter or Custom) and enter your API Key.
+4. Choose whether to save your API Key locally for future sessions.
+
+## 🙏 Credits, Citations & Upstream Attributions
+
+This project is an interactive Windows batch/JS frontend and relay-compatibility wrapper built around:
+
+- **Ikaleio/lm-detector (`lmfpd`)** — Created by Ikaleio for core LLM statistical fingerprinting and token distribution analysis.
+- **Oven Bun (`oven-sh/bun`)** — Used as the portable local JavaScript runtime and package manager.
+
+## 📄 License
+
+Distributed under the MIT License.
+
+---
+
+## 2. `project_handoff_context_prompt.md` (For Future Chat Sessions)
+
+Save this as **`project_handoff_context_prompt.md`**:
+
+```markdown
+# PROJECT HANDOFF CONTEXT PROMPT: DeadMoon Universal API Verify Script (v2.2)
+
+Copy and paste everything below into a new chat session to restore full project context:
+
+---
+
+## 1. Project Overview & Current State
+
+- **Script Name**: `DeadMoon_Universal_API_Verify_Script.cmd` (Portable Windows Batch + embedded Bun/JavaScript CLI wrapper).
+- **Core Engine**: Wraps **`Ikaleio/lm-detector`** (`lmfpd@latest` / `fpd`) via portable Oven Bun runtime stored locally in `lm_detector_deps/`.
+- **Key Features Implemented (v2.2)**:
+  1. Animated GIF-style ASCII art boot screen (DeadMoon headphone logo with music notes and twinkling stars)[cite: 3] and single-line progress updater (`25%` → `50%` → `75%` → `100%`).
+  2. **Smart Auto-Config Mode (`[M]`)**: Auto-probes protocol routes, handles reasoning model timeouts (240s for Opus/R1), and auto-heals stream drop errors (`-ns`) or rate-limit blocks (`-p 1`).
+  3. **Local API Key Vault**: Option to save API keys securely to `lm_detector_deps/saved_apikey.txt` (automatically loaded on startup) with a dedicated `[V]` viewer to inspect saved/active keys.
+  4. **Universal Catalog Fetcher**: Multi-strategy `/models` querying that bypasses pagination limits (fetching 400+ models on OpenRouter) with intelligent multi-word keyword and partial-match searching.
+
+---
+
+## 2. Windows Batch (`cmd.exe`) Guardrails (DO NOT REGRESS!)
+
+- **NEVER use `==` in `if` statements — always use `equ`** (prevents copy-paste parser corruption).
+- **NEVER put unescaped parentheses `(` or `)` inside parenthesized `if (...)` or `for (...)` blocks**.
+- **NEVER use `::` comments before `:labels` — always use `rem`** and leave a blank line before every `:label`.
+- **Line Endings Must Be Windows CRLF (`\r\n`)**.
+```
